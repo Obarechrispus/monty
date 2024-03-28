@@ -1,11 +1,12 @@
 #include "monty.h"
 
-void push_(stack_t **stack, unsigned int line_number)
+
+void push_(stack_t **stack, unsigned int line_number, char *arg)
 {
-	(void)stack;
-	(void) line_number;
-	/*	char *arg = instruction_s->opcode;
-	int value = atoi(arg);
+	/*(void)stack;
+	(void) line_number;*/
+	 /*arg = instruction_t>opcode;*/
+	/*int value = atoi(arg);*/
 	stack_t *new_node;
 
 
@@ -29,6 +30,6 @@ void push_(stack_t **stack, unsigned int line_number)
 		new_node->next = *stack;
 		(*stack)->prev = new_node;
 	}
-	*stack = new_node;*/
+	*stack = new_node;
 }
 
