@@ -1,18 +1,23 @@
 #include "monty.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
+#define EXIT_FAILURE 1
 #define MAX_LINE_LENGTH 1024
 
+/* Define your data structures and functions here */
+
 int main(int argc, char *argv[]) {
-    stack_t *stack = NULL;
-    char *line = NULL;
-    size_t len = MAX_LINE_LENGTH;
-    unsigned int line_number = 0;
     FILE *file;
+    char line[MAX_LINE_LENGTH];
+    int line_number = 0;
+    char *newline;
+    stack_t *stack;
+    char *token;
 
     if (argc != 2) {
-        fprintf(stderr, "USAGE: monty file\n");
+        fprintf(stderr, "USAGE: %s file\n", argv[0]);
         exit(EXIT_FAILURE);
     }
 
@@ -22,28 +27,37 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
-    line = malloc(len);
-    if (line == NULL) {
-        fprintf(stderr, "Error: malloc failed\n");
-        exit(EXIT_FAILURE);
-    }
+    stack = NULL;  /* Initialize an empty stack*/
 
-    while (fgets(line, MAX_LINE_LENGTH, file) != NULL) {
+    while (fgets(line, sizeof(line), file) != NULL) {
         line_number++;
-        if (line[0] != '\n') {
-           
-            size_t line_len = strlen(line);
-            if (line[line_len - 1] == '\n') {
-                line[line_len - 1] = '\0';
+
+        /* Remove trailing newline*/
+        newline = strchr(line, '\n');
+        if (newline != NULL)
+            *newline = '\0';
+
+        /* Tokenize the line and process the instruction*/
+        token = strtok(line, " ");
+        if (token == NULL)
+            continue;  /* Empty line*/
+
+        /* Execute the appropriate instruction*/
+        if (strcmp(token, "push") == 0) {
+            char *arg = strtok(NULL, " ");
+            if (arg == NULL) {
+                fprintf(stderr, "L%d: usage: push integer\n", line_number);
+                exit(EXIT_FAILURE);
             }
-            push(&stack, line_number, line);
-            pall(&stack, line_number);
+            push(&stack, line_number, arg);
+        } else {
+            /* Handle other instructions*/
+            fprintf(stderr, "L%d: unknown instruction %s\n", line_number, token);
+            exit(EXIT_FAILURE);
         }
     }
 
-    free(line);
     fclose(file);
-
-    return EXIT_SUCCESS;
+    return 0;
 }
 
