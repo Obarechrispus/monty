@@ -7,7 +7,7 @@
 int main(int argc, char *argv[]) {
     stack_t *stack = NULL;
     char *line = NULL;
-   /* size_t len = MAX_LINE_LENGTH;*/
+    size_t len = MAX_LINE_LENGTH;
     unsigned int line_number = 0;
     FILE *file;
 
@@ -22,7 +22,7 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
-    line = malloc(MAX_LINE_LENGTH);
+    line = malloc(len);
     if (line == NULL) {
         fprintf(stderr, "Error: malloc failed\n");
         exit(EXIT_FAILURE);
