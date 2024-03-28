@@ -2,7 +2,9 @@
 
 void push(stack_t **stack, unsigned int line_number)
 {
-/*	char *arg = instruction_s->opcode;*/
+	(void)stack;
+	(void) line_number;
+	/*	char *arg = instruction_s->opcode;
 	int value = atoi(arg);
 	stack_t *new_node;
 
@@ -27,6 +29,6 @@ void push(stack_t **stack, unsigned int line_number)
 		new_node->next = *stack;
 		(*stack)->prev = new_node;
 	}
-	*stack = new_node;
+	*stack = new_node;*/
 }
 
