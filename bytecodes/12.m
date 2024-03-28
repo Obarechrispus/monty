@@ -4,3 +4,7 @@ push 3
 pall
 add
 pall
+<<<<<<< HEAD
+=======
+
+>>>>>>> refs/remotes/origin/master
