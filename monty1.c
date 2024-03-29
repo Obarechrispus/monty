@@ -8,7 +8,7 @@
 
 /* Define your data structures and functions here */
 
-int main_(int argc, char *argv[]) {
+int main(int argc, char *argv[]) {
     FILE *file;
     char line[MAX_LINE_LENGTH];
     int line_number = 0;
