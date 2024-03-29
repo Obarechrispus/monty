@@ -4,7 +4,6 @@
 #define UNUSED __attribute__((unused))
 
 #include <stdlib.h>
-<<<<<<< HEAD
 #include <stddef.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -13,9 +12,6 @@
 #include <fcntl.h>
 #include <string.h>
 #include <ctype.h>
-=======
-
->>>>>>> c5cab4ffcbcd92b61f35f92fde9adf1a4a628d3c
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -54,7 +50,6 @@ void pint(stack_t **stack, unsigned int line_number);
 
 /*id pall(stack_t **stack, unsigned int line_number);
 void push(stack_t **stack, unsigned int line_number, char *arg);
-<<<<<<< HEAD
 int main(int argc, char *argv[]);
 int main_(int argc, char *argv[]);
 void execute(char *instruction, stack_t **stack, unsigned int line_number,FILE *file);
@@ -62,5 +57,5 @@ void free_stack(stack_t *stack);
 =======
 int main(int argc, char *argv[]);*/
 int main(int argc, char *argv[]);
->>>>>>> c5cab4ffcbcd92b61f35f92fde9adf1a4a628d3c
+
 #endif

@@ -15,7 +15,7 @@ void execute(char *instruction, stack_t **stack, unsigned int line_number, FILE 
             exit(EXIT_FAILURE);
         }
         /* Assuming push function exists in your stack implementation*/
-        push(stack, line_number, arg);
+        push(stack, arg, line_number);
     } /*else if (strcmp(token, "pop") == 0) {
         // Assuming pop function exists in your stack implementation
         pop(stack);
@@ -29,4 +29,4 @@ void execute(char *instruction, stack_t **stack, unsigned int line_number, FILE 
         exit(EXIT_FAILURE);
     }
 }
-
+/**void push(stack_t **stack, char *value, unsigned int line_number)*/
